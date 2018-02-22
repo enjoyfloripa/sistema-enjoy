@@ -16,3 +16,13 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+Route::prefix('/events')->group(function(){
+    Route::get('/', 'EventsController@all');
+    Route::get('/{event_id}', 'EventsController@find');
+    Route::post('/', 'EventsController@all');
+    Route::put('/', 'EventsController@all');
+    Route::delete('/', 'EventsController@all');
+});
+
