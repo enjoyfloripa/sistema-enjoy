@@ -19,7 +19,14 @@ class CreateEventsTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('genere');
+
+            $table->integer('house_id')->unsigned()->null();
+
+            $table->foreign('house_id')->references('id')->on('houses');
+
         });
+
+
 
         DB::table('events')->insert(
             [
